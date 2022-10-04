@@ -36,3 +36,21 @@ system interrupts, and only includes what is needed, allowing it to achieve a `"
 This page has recently been completely re-written, because this repo has contained all sorts of unimportant implementation details and defunct code over its life-cycle. I'll be uploading some of the test code and test information later this week (today being Oct 4 2022), I expect to have documetation available on this repo next week, and binaries ready for testing before Halloween.
 
 To all the folk that came here from the Nullposting group, I appreciate you endlessly. I wanted to ask about interest in the project early because I'm approaching the point of having a working 0.0.0 pretty quickly, and I'm really grateful so many of you are interested in bullying me for the greater good <3 
+
+## Okay but give me some fucking pseudocode, bro
+
+Here is some code that the partially complete compiler can actually run properly
+```python
+set = array: 'A' 'B' "C"
+x = 0
+while x < *length(set)
+	*append set x # the compiler knows you meant *append(set, x)
+	x++
+*print set
+```
+
+```python
+x = 399
+ptr @= x 
+*print "the variable x is stored at memory location " ptr
+```
