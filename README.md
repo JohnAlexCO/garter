@@ -24,14 +24,22 @@ or have a _netwide assembler_ available to build the compiler.
 I plan on uploading the language specification as soon as possible, but the documentation is presently incomplete.
 Briefly, though, the language:
 - is semantically whitespaced, like Python, but does not care about whether you use tabs or spaces interchangably
-- uses a [slab-based memory allocator](https://slembcke.github.io/Custom-Allocators) and is not garbage collected
 - includes the following basic data-types: integers, floats, strings, _linked arrays_, and dictionaries.
 - supports pointers and pointer arithmetic without including a separate explicit type
 - interprets `*macro` blocks and retreives their return value to inline during compilation
 - includes a small standard library with functions for manipulating strings, objects, rendering markdown and HTML,
 system interrupts, and only includes what is needed, allowing it to achieve a `"Hello World"` was less than 160 bytes (x86-64 ELF for generic Linux) during testing.
 
-### Additional Information
+## Implementation
+
+- uses a [linear, slab-based memory allocator](https://slembcke.github.io/Custom-Allocators) based on _**"Frames"**_.
+- memory allocation is [greedy](https://en.wikipedia.org/wiki/Greedy_algorithm) in exchange for not requiring a garbage collector, 
+manual memory management, or an equivalent to `malloc()`
+- the self-hosted compiler is itself a standalone interpreter containing the standard library, compiler, documentation, and tools. it _**does not**_ contain a REPL
+- langauge was written in chunks of garter-pseudocode that's been translated by-hand to assembly; it will then be re-written in actual Garter and compiled by itself to produce the self-hosted binary 
+
+
+## Additional Information
 
 This page has recently been completely re-written, because this repo has contained all sorts of unimportant implementation details and defunct code over its life-cycle. I'll be uploading some of the test code and test information later this week (today being Oct 4 2022), I expect to have documetation available on this repo next week, and binaries ready for testing before Halloween.
 
@@ -39,7 +47,7 @@ To all the folk that came here from the Nullposting group, I appreciate you endl
 
 ## Okay but give me some fucking pseudocode, bro
 
-Here is some code that the partially complete compiler can actually run properly
+Here is some code that the partially complete compiler can (or will be able to) run properly
 ```python
 set = array: 'A' 'B' "C"
 x = 0
