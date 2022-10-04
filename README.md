@@ -3,92 +3,36 @@
 	Garter, by JohnAlex.CO
 </h1>
 
-# Language Description
+## Language Description
 
-Garter is a compiled/interpreted language with minimal syntax, symbols, and rules.
-Its simultaneously simpler than C and as low-level as machine code, while also including macros and being as high-level as Python.
-It's both a language that allows very quick prototyping and learning, but also allows incredible power and direct control.
-Garter is in short a **High-Level Assembly language**.
+Garter is simultaneously "higher-level" than Python, while "lower-level" than C -- 
+among some of its more novel features are the ability to infer enveloping, 
+a macro-ing system that supports compiler flags and build routines _written in Garter_,
+the ability to directly manipulate registers and define bytes in memory like you would in Assembly,
+and having an inferred dynamic type system that is also nominal and statically compiled.
+It's a vaguely "Pythonic" language in look and feel that is heavily inspired by BASIC, Netwide Assembler, and C89/C99.
 
-**NOTE**: in this documentation and elsewhere, *Garter* refers to the language itself, and *garter* refers to the implementation as an interpreter/compiler.
+## When will Executables and Source code be available? 
 
-# Language Specification
+In roughly two weeks, when the 0.0.0 version is complete; while there is a partially complete compiler right now,
+it isn't useful for anything except printing strings and loading things into memory. 
+If you're excited to try it out, you'll either need to be on an x86-32 or x86-64 system (Windows, Linux, MacOS),
+or have a _netwide assembler_ available to build the compiler.
 
-Until the 0.0.0 version of garter is available, I don't want to be overly specific about implementation details.
-*See Below Section "Where is the Source?" for further reading.* 
-I've included some very basic pseudocode here to show what Garter looks like,
-and when garter has been bootstrapped, full documentation as well as tutorials will be available from
-my personal website at [johnalex.co/garter](https://johnalex.co/garter), as well as here on my GitHub.
-```python
-func *length string
-    len = 0
-    *while string.len
-        len++
-    *return len
-```
+## Language Specification
 
-```python
-markdown = *import 'https://johnalex.co/gib/?package=markdown'
-a = dict: tag 'h1' content x
-    tag 'p' content 'Hello, World!'
-page = markdown.render(a)
-*print(page)
-#>> "<h1><p>Hello, World!</p></h1>"
-*print *string(a), *string(x)
-#>> {tag: 'h1', content: [Object x]} {tag: 'p', content: 'Hello, World!'}
-```
+I plan on uploading the language specification as soon as possible, but the documentation is presently incomplete.
+Briefly, though, the language:
+- is semantically whitespaced, like Python, but does not care about whether you use tabs or spaces interchangably
+- uses a [slab-based memory allocator](https://slembcke.github.io/Custom-Allocators) and is not garbage collected
+- includes the following basic data-types: integers, floats, strings, _linked arrays_, and dictionaries.
+- supports pointers and pointer arithmetic without including a separate explicit type
+- interprets `*macro` blocks and retreives their return value to inline during compilation
+- includes a small standard library with functions for manipulating strings, objects, rendering markdown and HTML,
+system interrupts, and only includes what is needed, allowing it to achieve a `"Hello World"` was less than 160 bytes (x86-64 ELF for generic Linux) during testing.
 
-# Building a Language 
-### The Pieces
-A *transpiler* that takes some subset of Garter and ports it to code in another language,<br>
-[gasm](https://github.com/johnalexco/gasm), which can assemble low-level `*.gasm` code to machine binary (or a bytecode-machine program),<br>
-and [garter](https://github.com/johnalexco/garter) itself, which takes `*.gy` code and compiles it down to `*.gasm`
+### Additional Information
 
-### Methodology
-First, a version of [gasm](https://github.com/johnalexco/gasm)
-is written that can take `*.gasm` programs and build a machine application. *See the gasm repository for more information.*
-Then a transpiler is written; it only needs to be able to handle such a subset of Garter that a proper interpreter/compiler can be built up from it.
-Finally, the bootstrapping process begins. garter is written in Garter and fed into the transpiler, creating `boot.js`.
-That same code is fed back into `boot.js` to be compiled into the self-hosted version, garter.
-The compilation stage should target the `*.gasm` microlanguage, and gasm should be used to build the actual executables.
+This page has recently been completely re-written, because this repo has contained all sorts of unimportant implementation details and defunct code over its life-cycle. I'll be uploading some of the test code and test information later this week (today being Oct 4 2022), I expect to have documetation available on this repo next week, and binaries ready for testing before Halloween.
 
-### Why Two Languages?
-The reason I elected to write a second, smaller language primarily came down to the desire to be able to compile to assembly, 
-as languages like C do, while still having assembly code that's target-ambivalent, easy to transpile or interpret, and easily human-writable too.
-I wanted a compile target that is less abstract than Assembly -- more like an actual machine language -- while also easier to read and write.
-Thus, [gasm](https://github.com/johnalexco/gasm), the Garter ASM was born.
-Instead of necessarily needing to re-write garter in lots of languages to port it, 
-only gasm has to be re-written, and then one implementation of Garter in gasm allows compiling native versions of garter on any machine. 
-
-### Where is the Source? 
-Until the 0.0.0 version is released, **no downloads or source will be available**
-Once the self-hosted version of this language is built, I will be uploading its source to this repository with build instructions,
-as well as uploading releases for Linux, MacOS, and Windows, as well as adding an Interpreter/REPL to my personal website.
-I also intend to upload some YouTube videos of the bootstrapping process very soon to my personal channel.
-
-### Installation
-
-No install is available yet. See above
-<!-- https://github.com/JohnAlexCO/garter/archive/refs/heads/main.zip -->
-
-<!--
-Building Garter:
-- Requires [node.js](https://nodejs.org/) (recommended: v16.14.2)
-
-1. Download the source [by clicking here](https://github.com/JohnAlexCO/garter/archive/refs/heads/main.zip)
-
-2. Unzip and navigate to `/src/jarter`
-
-3. Run `node jarter.js garter.gy`. It will compile `garter-linux`, `garter-mac`, and `garter-windows.exe` executables
-
-4. **OPTIONAL &ndash;** if you'd like Garter to be installed globally,
-move the compiled Garter program to wherever you'd like it to stay permanently, and then add that location to your `$PATH`.
-[(Linux)](https://www.howtogeek.com/658904/how-to-add-a-directory-to-your-path-in-linux/) 
-[(Windows)](https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/) 
-[(MacOS)](https://wpbeaches.com/how-to-add-to-the-shell-path-in-macos-using-terminal/)
--->
-*More of my work is available at <a href="https://JohnAlex.CO">JohnAlex.CO</a>*
-
-
-
-
+To all the folk that came here from the Nullposting group, I appreciate you endlessly. I wanted to ask about interest in the project early because I'm approaching the point of having a working 0.0.0 pretty quickly, and I'm really grateful so many of you are interested in bullying me for the greater good <3 
