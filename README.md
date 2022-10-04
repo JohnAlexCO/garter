@@ -43,7 +43,7 @@ Here is some code that the partially complete compiler can actually run properly
 ```python
 set = array: 'A' 'B' "C"
 x = 0
-while x < *length(set)
+while x < *macro *length(set) # the value at compile-time, not the dynamically changing size 
 	*append set x # the compiler knows you meant *append(set, x)
 	x++
 *print set
