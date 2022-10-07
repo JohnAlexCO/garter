@@ -81,7 +81,7 @@ if they are not not all mutable, they aren't counted here
 |C#|Yes|Declarative|Yes|No?|Braces|Verbose|
 |ECMA|Yes|Declarative|Yes|Yes|Braces|Low|
 |Lua|Yes|Declarative|Yes|Yes|Blocks|Moderate|
-|Nim|Yes|Declarative|Yes|No|Braces|Low|
+|Nim|Yes|Declarative|Yes|No|Whitespaced|Low|
 |Python|Yes|Declarative|Yes|Yes|Whitespaced|Low|
 |Ruby|Yes|Declarative|Yes|Yes|Blocks|Low|
 |Rust|Yes|Imperative|Yes|No|Braces|Verbose|
