@@ -41,13 +41,29 @@ manual memory management, or an equivalent to `malloc()`
 
 ## Additional Information
 
-This page has recently been completely re-written, because this repo has contained all sorts of unimportant implementation details and defunct code over its life-cycle. I'll be uploading some of the test code and test information later this week (today being Oct 4 2022), I expect to have documetation available on this repo next week, and binaries ready for testing before Halloween.
+I expect to have documetation available on this repo next week, and binaries ready for testing before Halloween.
+If you'd like some additional information about how Garter compares to other languages, check out the [Comparison Info](info/comparisons.md) page
 
 To all the folk that came here from the Nullposting group, I appreciate you endlessly. I wanted to ask about interest in the project early because I'm approaching the point of having a working 0.0.0 pretty quickly, and I'm really grateful so many of you are interested in bullying me for the greater good <3 
 
 ## Okay but give me some fucking pseudocode, bro
 
 Here is some code that the partially complete compiler can (or will be able to) run properly
+```python
+render = *functon object
+    if object.tag == undefined | *type(object.tag) != 'string'
+        return null
+    string = '<'+object.tag+'>'
+    k = *object.keys(object)
+    l = *length(k)
+    n = 0
+    # the parenthesis in here de-reference the attrs
+    # so that the compiler knows we mean index k by the value of variable n
+    # and not to index it like a hashtable for the attribute named n
+    while n++ <= l
+        string += k.(n) +'="'+ object.(k.(n)) + '"'
+    return string +='/>'
+```
 ```python
 set = array: 'A' 'B' "C"
 x = 0
