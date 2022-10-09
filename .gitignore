@@ -1,0 +1,7 @@
+# Ignore stylesheets and markup
+*.css
+*.html
+*.js
+*.yaml
+*.xml
+*.conf
