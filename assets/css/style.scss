@@ -2,3 +2,20 @@
 ---
 
 @import "{{ site.theme }}";
+
+a { color: #ff8000; }
+h2 { color: #ff4000; }
+
+.project-icon {
+  width: 160px;
+  height: 160px;
+}
+
+.page-header {
+  background-color: #ff8000;
+  background-image: linear-gradient(to right, #ffa000 , #ff4000);
+}
+
+/*
+  https://www.w3schools.com/css/css3_gradients.asp
+*/
