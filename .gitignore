@@ -1,4 +1,5 @@
 # Ignore stylesheets and markup
+*.scss
 *.css
 *.html
 *.js
