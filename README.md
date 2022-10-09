@@ -1,8 +1,3 @@
-<h1 align="center">
-	<img src="./logo/blocky_snake.png" height="160px"/><br>
-	Garter, by JohnAlex.CO
-</h1>
-
 ## Language Description
 
 Garter is simultaneously "higher-level" than Python, while "lower-level" than C -- 
