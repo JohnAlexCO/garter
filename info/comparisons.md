@@ -9,8 +9,8 @@ not to act as a complete or objective technical reference._
 ## Build and Resource Information 
 |  | Memory|Compiler Size |Binary Size | Speed|Cold Start|
 |:-|:-:    |:-:           |:-:         |:-:   |:-:|
-|Garter|Good*|51KB*|Minimal|Best|Best|
-|Assembly|Best|3.4MB|Minimal|Best|Best|
+|Garter|Good*|51KB*|Best|Best|Best|
+|Assembly|Best|3.4MB|Best|Best|Best|
 |C|Good|700KB|Par|Good|Good|
 |Cpp|Good|900KB|Par|Good|Good|
 |C#|Par|30MB*|Par|Good|Subpar|
@@ -20,7 +20,7 @@ not to act as a complete or objective technical reference._
 |Python|Poor|150MB|Good|Par|Par|
 |Ruby|Poor|20MB|Subpar|Poor|Subpar|
 |Rust|Par|1GB|Poor|Good|Par|
-|Zig|Good|271MB|Best|Good|Good|
+|Zig|Good|271MB|Good|Good|Good|
 
 \* Garter uses a greedy algorithm for allocating 
 and managing memory that suffers during long runtimes
