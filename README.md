@@ -8,6 +8,10 @@
 Garter is planned to be a vaguely "Pythonic" language in look and feel, and is heavily inspired by BASIC, Netwide Assembler, and C89/C99.
 It compiles to x86 Assembly _(additional targets only planned in the future)_ and will include support for macros, object-based programming, direct access to syscalls, and is built on what I believe to be the minimum amount of abstraction necessary to still allow it to be free of unnecessary boiler-plating and remain very easy to read.  
 
+## HIATUS UPDATE #3:
+
+Most of the language's implementation documentation is complete, so I'll be uploading that relatively soon. I'm going to be recording and uploading devlogs on [YouTube](https://youtube.com/@garterlang) explaining the self-hosting process and implementation details of the language, building the standard library, and on installing and using Garter. 
+
 ## HIATUS UPDATE #2: 
 
 This project is on a temporary hiatus because of paid work that's on my plate, and complications with moving and my personal life. The project will be open-sourced after release, and development is planned to resume around the newyear or a little after. I'm going to be updating this repo with implementation plans before I actually release the first version, and it will likewise launch here. Some planned features or implementation details have also been modified to make building the first version of the language possible sooner.
