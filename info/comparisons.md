@@ -1,4 +1,7 @@
-# Language Comparisons
+<h1 align="center">
+	<img src="https://github.com/JohnAlexCO/garter/raw/logos/logo/simplified.png" height="160px"/><br>
+	Language Comparisons
+</h1>
 
 _This page is not intended to be comprehensive,
 and some of the statements are open to interpretation;
@@ -27,12 +30,13 @@ and managing memory that suffers during long runtimes
 if the size of memory changes often
 <br>
 \** Garter's listed size is an estimate based on current implementation roadmap
+<br>
 \*** C# Compiler size based on clone data from a friend at Microsoft. If it's incorrect, uh. idk bro that's wild
 
 ## Low Level Features 
 |  | Pointers|Mem. Safety|Registers|Data Mutability|C or ASM Embedding|
 |:-|:-:      |:-:        |:-:      |:-:            |:-:               |
-|Garter|	✔️ | |✔️|✔️|*|
+|Garter|	✔️ | |✔️|✔️|✔️|
 |Assembly|	✔️ | |✔️|✔️|✔️|
 |C|			✔️| | |✔️|✔️|
 |Cpp|		✔️| | |✔️|✔️|
@@ -73,7 +77,7 @@ if they are not not all mutable, they aren't counted here
 
 ## Syntax and Style Differences 
 
-| | Structured|Paradigm* |Inferred|Dynamic|Enveloping|Verbosity*|
+| | Structured|Paradigm* |Inferred|Dynamic*|Enveloping|Verbosity**|
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 |Garter|Optional|Flexible|Yes|Yes|Whitespaced|Minimal|
 |Assembly|No|Imperative|No|No||Verbose|
@@ -88,9 +92,10 @@ if they are not not all mutable, they aren't counted here
 |Rust|Yes|Imperative|Yes|No|Braces|Verbose|
 |Zig|Yes|Imperative|Yes|No|Braces|Moderate|
 
-\* Generalizations based on codebases I've seen;
+\*Dynamic as in the Typing System
+\*\* Generalizations based on codebases I've seen;
 a lot of these languages I don't have real personal
-experience with, but I tried to do research on them all.
+experience with, but I tried to do research on them all.<br>
 
 <!--
 	https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)
