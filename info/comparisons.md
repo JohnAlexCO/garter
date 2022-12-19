@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="https://github.com/JohnAlexCO/garter/raw/logos/logo/simplified.png" height="160px"/><br>
+	<img src="https://github.com/JohnAlexCO/garter/blob/main/logo/simplified.png?raw=true" height="160px"/><br>
 	Language Comparisons
 </h1>
 
