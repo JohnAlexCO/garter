@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="./logo/blocky_snake.png" height="160px"/><br>
+	<img src="./logo/simplified.png" height="160px"/><br>
 	Garter, by JohnAlex.CO
 </h1>
 
@@ -7,6 +7,8 @@
 
 Garter is planned to be a vaguely "Pythonic" language in look and feel, and is heavily inspired by BASIC, Netwide Assembler, and C89/C99.
 It compiles to x86 Assembly _(additional targets only planned in the future)_ and will include support for macros, object-based programming, direct access to syscalls, and is built on what I believe to be the minimum amount of abstraction necessary to still allow it to be free of unnecessary boiler-plating and remain very easy to read.  
+
+For comparisons between Garter (as its planned) and other popular programming languages, see [Language Comparisons](./info/comparisons.md)
 
 ## HIATUS UPDATE #3:
 
