@@ -18,7 +18,7 @@ and of course announcing when it becomes available to download / try online.
 
 ## LANGUAGE HIGHLIGHTS:
 
-- language bridges balances high-level control flow and simple syntax with source still being very close to how it compiles and runs
+- language balances high-level control flow and simple syntax with source still being very close to how it compiles and runs
 - partially semantic whitespacing like Python; allows use of mixed spaces and tabs, and ignores indentation past the beginning of the line
 - supports pointers and pointer arithmetic without using special types
 - very small cross-platform standard library
