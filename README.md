@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="./logo/simplified.png" height="160px"/><br>
+	<img src="https://johnalex.co/gy.png?github-johnalexco" height="160px"/><br>
 	Garter, by JohnAlex.CO
 </h1>
 
