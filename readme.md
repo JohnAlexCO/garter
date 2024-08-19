@@ -78,4 +78,4 @@ Usage of Garter's name and branding are permitted as long as they do not imply a
 [ ![Unlicense logo](https://unlicense.org/pd-icon.png) ](https://www.unlicense.org/)
 [ ![GNU Affero License Logo](https://www.gnu.org/graphics/agplv3-with-text-162x68.png) ](https://www.gnu.org/licenses/agpl-3.0.html)
 
-Modula.dev © JohnAlex.CO 2024
+[Modula © 2024, All Rights Reserved](https://modula.dev)
