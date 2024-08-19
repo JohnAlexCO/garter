@@ -4,6 +4,37 @@ is an in-development programming language heavily influenced by
 DarkBasic, x86 Assembly, JavaScript, Python, and C
 and built from the ground-up on its own tooling and compiler toolchain.
 
+## Update (August 19, 2024)
+
+About a week and half ago, I finished making the new 
+cli itself, and I'm currently finishing up work on the Assembler. 
+There's some information about the syntax and stuff
+[over on my website](https://modula.dev/assembly).
+I also have some info about
+[how the toolchain works](https://modula.dev/design),
+but the first pre-0.0.0 release is basically gonna look like
+```
+garter
+  ↳ data
+    ↳ locale (I plan to add support for a few other languages later on)
+      ↳ english
+    ↳ assets
+    ↳ runtime
+  ↳ cli
+  ↳ frontends (no preprocessor or garter compiler yet)
+    ↳ gasm-GY24
+  ↳ backends (no other backends or interpreter yet)
+    ↳ linux x86-32
+  ↳ linker (eventually I plan to add shared object support)
+    ↳ bytecode
+  ↳ shared
+    ↳ lexer
+    ↳ parser
+    ↳ file i/o
+    ↳ printing and error functions
+```
+
+
 ## What's Included
 
 Out of the box, Garter provides a compiler toolchain
@@ -15,30 +46,6 @@ _Eventually_ Garter will also include additional libraries,
 a [language server](https://github.com/JohnAlexCO/gyls), 
 and a [package manager](https://github.com/JohnAlexCO/gib).
 Documentation will also be available over at [Modula.dev](https://modula.dev/garter)
-
-## Installation
-
-Garter will be available as standalone binaries for 
-64-bit Windows, Linux, and MacOS. 
-For major versions, I plan to also make binaries for 
-[FreeBSD](https://www.freebsd.org/) and
-[ravynOS](https://ravynos.com/).
-
-To build Garter from source, you'll need 
-[gasm](https://github.com/JohnAlex.CO/gasm), 
-and if you're building `gasm` from source,
-you'll also need 
-[gyb](https://github.com/JohnAlexCO/gyb).
-From there, building Garter look something like:
-```
-gyb -v && gasm -v
-> gyb 0.0.0
-> gasm 0.0.0
-gasm garter.gasm garter
-> "garter" assembled as Linux ELF in 33kiB
-./garter -v
-> garter 0.0.0
-```
 
 ## Implementation
 
@@ -52,12 +59,19 @@ as well a bytecode file that can be run in
 
 ## Resources
 
+__NOTE:__ There's a bug in the currently running version of [Weaver](https://modula.dev/weaver)
+that is causing the `/garter` route that because certain browsers automagically add a `/` to
+the end of the uri, and because of a small error in how uris are interally cast in the library,
+causes an interal service error. If you navigate instead of `/garter?somequery`,
+or just to `/documentation` instead, the pages should work correctly.
+__I do plan to fix the bug in Weaver sometime soon, but finishing the assembler is my priority right now__.
+
 - [Garter Website](https://modula.dev/garter)
 - [YouTube Devlog](https://www.youtube.com/@moduladev)
 
 ## Licensing 
 
-This project will be adopting a hybrid licensing model. The main project will ship with a Contributor License Agreement and the AGPLv3.2. All of the language's documentation will be under the Unlicense.
+This project will be adopting a hybrid licensing model. The main project will ship with a Contributor License Agreement and the AGPLv3. 
 Additional materials and extensions will be available under a proprietary End-User License Agreement which stipulates that modifications to the language implementation must be made publicly available under the CLA and AGPL licenses.
 Usage of Garter's name and branding are permitted as long as they do not imply an endorsement by Modula or its contributors.
 
