@@ -2,36 +2,44 @@
 
 is an in-development programming language heavily influenced by
 DarkBasic, x86 Assembly, JavaScript, Python, and C
-and built from the ground-up on its own tooling and compiler toolchain.
+and built from the ground-up on its own tooling and compiler toolchain
 
-## Update (August 19, 2024)
+## Update (September 24, 2024)
 
-About a week and half ago, I finished making the new 
-cli itself, and I'm currently finishing up work on the Assembler. 
-There's some information about the syntax and stuff
-[over on my website](https://modula.dev/assembly).
-I also have some info about
+Getting closer to having my prerelease, just finished moving so it's been a bit
+but I just refactored a lot of the internals to make it a better _toolchain_.
+If you're interested, I have info over on my website about
 [how the toolchain works](https://modula.dev/design),
-but the first pre-0.0.0 release is basically gonna look like
+and the first pre-0.0.0 release is basically gonna look like
 ```
 garter
   ↳ data
-    ↳ locale (I plan to add support for a few other languages later on)
-      ↳ english
+    ↳ locale
     ↳ assets
-    ↳ runtime
   ↳ cli
-  ↳ frontends (no preprocessor or garter compiler yet)
-    ↳ gasm-GY24
-  ↳ backends (no other backends or interpreter yet)
-    ↳ linux x86-32
-  ↳ linker (eventually I plan to add shared object support)
-    ↳ bytecode
+    ↳ args
+    ↳ daisy
+  ↳ frontends
+    ↳ garter-gy24
+      ↳ gasm
+      ↳ garter
+  ↳ backends
+    ↳ gyb
+      ↳ linker
+      ↳ disassembler
+    ↳ emitters
+      ↳ linux
+        ↳ x86 (32-bit)
+      ↳ windows
+      ↳ macos
+      ↳ c-lang
+        ↳ 64-bit
+        ↳ 32-bit
   ↳ shared
-    ↳ lexer
-    ↳ parser
+    ↳ symtables
+    ↳ string
     ↳ file i/o
-    ↳ printing and error functions
+    ↳ error and tui functions
 ```
 
 
