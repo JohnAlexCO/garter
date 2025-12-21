@@ -1,0 +1,5 @@
+#!/bin/sh
+CFLAGS="-e __init -ffreestanding -nostdlib -nodefaultlibs -nostartfiles -static -Ilib lib/core.o lib/lib.o"
+DEBUG="-g"
+gcc -o garter src/garter.c $DEBUG $CFLAGS
+gdbgui 'garter'

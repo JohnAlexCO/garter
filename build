@@ -1,0 +1,14 @@
+#!/bin/sh
+CFLAGS="-e __init -ffreestanding -nostdlib -nodefaultlibs -nostartfiles -static -Ilib lib/core.o lib/lib.o"
+MINIC=" -fno-unwind-tables -fno-asynchronous-unwind-tables -fdata-sections -ffunction-sections"
+MINIL="-Wl,--build-id=none,-s,--gc-sections,-z,norelro,-z,now"
+gcc $CFLAGS -o garter src/main.c $MINIC $MINIL
+objcopy --remove-section=.comment --remove-section=.note --remove-section=.eh_frame garter
+
+# For funsies, give us a similar assembly source
+gcc -C -E -P -nostdinc -Ilib src/main.c -o _pre.c
+gcc -S -fverbose-asm -Ilib -ffreestanding -nostdlib -nodefaultlibs src/main.c -o main.s -e __init
+objdump -d garter > dump.s
+echo "Linecount -- " && wc -l main.s dump.s
+sizeof garter
+rm main.s dump.s
